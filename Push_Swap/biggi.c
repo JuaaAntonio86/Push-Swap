@@ -6,7 +6,7 @@
 /*   By: juan-anm <juan-anm@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 11:51:41 by juan-anm          #+#    #+#             */
-/*   Updated: 2023/06/19 14:58:45 by juan-anm         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:56:54 by juan-anm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	sort_big(t_node **a, t_node **b, int chunks, int total_size)
 	tmpa = *a;
 	chunk_size = total_size / chunks;
 	i = 0;
-	while (tmpa->next != NULL)
+	while (tmpa != NULL)
 	{
 		tmp_size = ft_stacksize(*a);
 		max_ind = (total_size / chunks) * ++i;
@@ -35,6 +35,7 @@ void	sort_big(t_node **a, t_node **b, int chunks, int total_size)
 				push_stack_b(a, b, max_ind, chunk_size);
 			else
 				rotate_a(a, 'a');
+		tmpa = *a;
 		}
 	}
 	push_stack_a(a, b);
@@ -44,8 +45,8 @@ void	push_stack_b(t_node **a, t_node **b, int max_ind, int chunk_size)
 {
 	t_node *tmpb;
 
-	tmpb = *b;
 	push_b(a, b, 'b');
+	tmpb = *b;
 	if (chunk_size > 20)
 	{
 		if (tmpb->index < (max_ind - (chunk_size / 2)))
@@ -58,7 +59,7 @@ void	push_stack_a(t_node **a, t_node **b)
 	t_node *tmpb;
 
 	tmpb = *b;
-	while (tmpb->next != NULL)
+	while (tmpb != NULL)
 	{
 		if (ft_stacksize(*b) == 1)
 			push_b(b, a, 'a');
@@ -75,6 +76,7 @@ void	push_stack_a(t_node **a, t_node **b)
 			push_node(b, ft_stacksize(*b) - 1, 'b');
 			push_b(b, a, 'a');
 		}
+		tmpb = *b;
 	}
 }
 

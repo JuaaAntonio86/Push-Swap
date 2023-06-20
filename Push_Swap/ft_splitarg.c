@@ -6,7 +6,7 @@
 /*   By: juan-anm <juan-anm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 11:51:54 by juan-anm          #+#    #+#             */
-/*   Updated: 2023/06/19 13:45:30 by juan-anm         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:03:48 by juan-anm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static char		*ft_strdupli(const char *s1, char cut);
 static int		ft_cntwrds(char const *s, char c);
 static char		**ft_splipri(char **split, char const *s, char c);
-static void		*ft_freesp(char **m);
 
 char	**ft_splitarg(char const *s, char c)
 {
@@ -115,16 +114,17 @@ static	char	*ft_strdupli(const char *s1, char cut)
 	return (dupstr);
 }
 
-static void	*ft_freesp(char **m)
+void	*ft_freesp(char **m)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	while (m[i] != NULL)
 	{
 		free(m[i]);
 		i++;
 	}
+	free(m[0]);
 	free(m);
 	return (NULL);
 }

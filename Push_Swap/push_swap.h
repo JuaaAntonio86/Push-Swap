@@ -20,7 +20,7 @@ typedef struct t_node
 }	t_node;
 
 char	**ft_splitarg(char const *s, char c);
-
+void	*ft_freesp(char **m);
 void ft_initlist(t_node **root, int valu, int indx);
 int	ft_checkarg(char **argv);
 void ft_checkvalues(t_node **root);

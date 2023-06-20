@@ -18,7 +18,7 @@ int main (int argc, char **argv)
 	while (argv[i] != NULL)
 	{
 	if (ft_atol(argv[i]) > INT_MAX || ft_atol(argv[i]) < INT_MIN)
-		ft_error(1, &a);	
+		ft_error(1, &a);
 	ft_initlist(&a, ft_atol(argv[i]), 0);
 	i++;
 	}
@@ -73,9 +73,8 @@ int main (int argc, char **argv)
 	ft_printf("%ia", ft_stacksize(a));
 	ft_printf("%ib\n", ft_stacksize(b));	
 */
-
 	if (argv[0] == 0)
-		ft_freearg(argv);
+		ft_freesp(argv);
 	ft_freelst(&a);
 	ft_freelst(&b);
 }

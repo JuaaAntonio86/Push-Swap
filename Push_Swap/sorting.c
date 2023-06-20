@@ -19,12 +19,15 @@ void ft_sortstack(t_node **a, t_node **b)
 	}
 	else if (ft_stacksize(*a) > 3 && ft_stacksize(*a) < 11)
 	{
-//	ft_sort5(a, b);
-//	}
-//	else if (ft_stacksize(*a) >= 11)
-//	{
-	sort_big(a, b, 3, ft_stacksize(*a));
+	ft_sort5(a, b);
 	}
+	else if (ft_stacksize(*a) >= 11)
+		sort_big(a, b, 3, ft_stacksize(*a));
+//	else if (ft_stacksize(*a) >= 11)
+//		sort_big(a, b, 3, ft_stacksize(*a));
+//	else if (ft_stacksize(*a) >= 11)
+//		sort_big(a, b, 3, ft_stacksize(*a));
+
 }
 
 int	ft_stacksize(t_node *a)
