@@ -6,7 +6,7 @@
 /*   By: juan-anm <juan-anm@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 12:18:23 by juan-anm          #+#    #+#             */
-/*   Updated: 2023/06/21 18:09:35 by juan-anm         ###   ########.fr       */
+/*   Updated: 2023/06/21 19:16:17 by juan-anm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char **argv)
 	ft_freelst(&b);
 }
 
-int	ft_checkarg(char **argv)
+/*int	ft_checkarg(char **argv)
 {
 	int	i;
 	int	j;
@@ -67,4 +67,43 @@ int	ft_checkarg(char **argv)
 	j++;
 	}
 	return (0);
+}*/
+int	ft_checkarg(char **argv)
+{
+	int	j;
+
+	j = 1;
+	while (argv[j] != NULL)
+	{
+		if (checkstr(argv[j]) != 0)
+			return (1);
+	j++;
+	}
+	return (0);
+}
+
+int checkstr(char *str)
+{
+	int	i;
+	int	neg;
+
+	neg = 0;
+	i = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-' || str[i] == '+')
+			neg++;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		neg = 0;
+		i++;
+	}
+	if (str[i] == '\0' && neg == 0)
+		return (0);
+	else 
+		return (1);
 }

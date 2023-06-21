@@ -6,7 +6,7 @@
 /*   By: juan-anm <juan-anm@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 12:44:16 by juan-anm          #+#    #+#             */
-/*   Updated: 2023/06/21 15:44:42 by juan-anm         ###   ########.fr       */
+/*   Updated: 2023/06/21 19:10:20 by juan-anm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	*ft_freesp(char **m);
 void	ft_initlist(t_node **root, int valu, int indx);
 int		ft_checkarg(char **argv);
 void	ft_checkvalues(t_node **root);
+int		checkstr(char *str);
 
 //////////////MOVEMENTS FUNCT////////////
 
