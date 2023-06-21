@@ -3,7 +3,7 @@ NAME = push_swap
 BONUS = checker
 CFLAGS = -Wall -Wextra -Werror 
 SRCS =	ft_splitarg.c ft_stackinit.c push_swap.c operations.c sorting.c bigsort.c biggi.c\
-
+		biggi2.c\
 ##MAND =	push_swap.c \
 		
 		

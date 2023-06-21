@@ -1,60 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_stackinit.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: juan-anm <juan-anm@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/21 13:24:38 by juan-anm          #+#    #+#             */
+/*   Updated: 2023/06/21 15:49:56 by juan-anm         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-/*
-typedef struct t_node
+
+void	ft_initlist(t_node **root, int valu, int indx)
 {
-    int                value;
-    struct t_node    *next;
-    struct t_node    *prev;
-}    t_node;
+	t_node	*node;
+	t_node	*tmp;
 
-#include <stdio.h>
-#include <unistd.h>
-
-int main(int argc, char **argv)
-{
-    t_node *a = NULL;
-    char *str[6] = {str[0]="0",str[1]="2",str[2]="6",str[3]="21",str[4]="90",str[5] = 0};
-    int nbr;
-    int i = 0;
-
-    while (str[i] != NULL)
-    {
-      nbr = atol(str[i]);
-      ft_initlist(&a, nbr);
-      i++;
-    }
-}
-*/
-void ft_initlist(t_node **root, int valu, int indx)
-{
-  t_node *node;
-
-  	node = malloc(sizeof(t_node));
-  if (node == NULL)	
-	  ft_error(1, root);
+	node = malloc(sizeof(t_node));
+	if (node == NULL)
+		ft_error(1, root);
 	node->value = valu;
 	node -> index = indx;
-	node->next =NULL;
-  if (*root == NULL)
-  {
-      *root = node;
-      node->prev = NULL; 
-  }
-  else
-  {
-    t_node *temp = *root;
-    while(temp->next != NULL)
-    	temp = temp->next;
-    temp->next = node;
-    node->prev = temp;
-  }
-  ft_checkvalues(root);
+	node->next = NULL;
+	if (*root == NULL)
+	{
+		*root = node;
+		node->prev = NULL;
+	}
+	else
+	{
+		tmp = *root;
+		while (tmp->next != NULL)
+			tmp = tmp->next;
+		tmp->next = node;
+		node->prev = tmp;
+	}
+	ft_checkvalues(root);
 }
 
-void ft_checkvalues(t_node **root)
+void	ft_checkvalues(t_node **root)
 {
-	t_node *first;
-	t_node *sec;
+	t_node	*first;
+	t_node	*sec;
 
 	first = *root;
 	while (first != NULL)
@@ -95,7 +83,7 @@ void	*ft_freearg(char **m)
 void	ft_freelst(t_node **stack)
 {
 	t_node	*tmp;
-	t_node *curr;
+	t_node	*curr;
 
 	curr = *stack;
 	while (curr != NULL)

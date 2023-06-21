@@ -6,33 +6,31 @@
 /*   By: juan-anm <juan-anm@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 11:51:41 by juan-anm          #+#    #+#             */
-/*   Updated: 2023/06/20 17:56:54 by juan-anm         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:54:06 by juan-anm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_big(t_node **a, t_node **b, int chunks, int total_size)
+void	sort_big(t_node **a, t_node **b, int blocks, int i)
 {
-	int		i;
 	int		iter;
 	int		max_ind;
 	int		tmp_size;
-	int		chunk_size;
-	t_node *tmpa;
+	int		block_size;
+	t_node	*tmpa;
 
 	tmpa = *a;
-	chunk_size = total_size / chunks;
-	i = 0;
+	block_size = ft_stacksize(*a) / blocks;
 	while (tmpa != NULL)
 	{
 		tmp_size = ft_stacksize(*a);
-		max_ind = (total_size / chunks) * ++i;
+		max_ind = (ft_stacksize(*a) + ft_staksize(*b) / blocks) * ++i;
 		iter = -1;
 		while (++iter < tmp_size)
 		{
 			if (tmpa->index < max_ind)
-				push_stack_b(a, b, max_ind, chunk_size);
+				push_stack_b(a, b, max_ind, block_size);
 			else
 				rotate_a(a, 'a');
 		tmpa = *a;
@@ -43,7 +41,7 @@ void	sort_big(t_node **a, t_node **b, int chunks, int total_size)
 
 void	push_stack_b(t_node **a, t_node **b, int max_ind, int chunk_size)
 {
-	t_node *tmpb;
+	t_node	*tmpb;
 
 	push_b(a, b, 'b');
 	tmpb = *b;
@@ -56,7 +54,7 @@ void	push_stack_b(t_node **a, t_node **b, int max_ind, int chunk_size)
 
 void	push_stack_a(t_node **a, t_node **b)
 {
-	t_node *tmpb;
+	t_node	*tmpb;
 
 	tmpb = *b;
 	while (tmpb != NULL)
@@ -94,44 +92,5 @@ void	push_node(t_node **stack, int index, char stackchr)
 		else
 			rrotate_a(stack, stackchr);
 		pos = find_node(stack, index);
-	}
-}
-
-int	mtp(t_node **stack, int index)
-{
-	int	mtp;
-
-	if (find_node(stack, index) < ft_stacksize(*stack) / 2)
-		mtp = find_node(stack, index);
-	else
-		mtp = ft_stacksize(*stack) - find_node(stack, index);
-	return (mtp);
-}
-
-int	find_node(t_node **stack, int index)
-{
-	t_node	*tmp;
-
-	tmp = *stack;
-	while (tmp)
-	{
-		if (tmp->index == index)
-			return (tmp->pos);
-		tmp = tmp->next;
-	}
-	return (-1);
-}
-
-void	pos_stack(t_node **stack)
-{
-	t_node	*tmp;
-	int		i;
-
-	tmp = *stack;
-	i = 0;
-	while (tmp)
-	{
-		tmp->pos = i++;
-		tmp = tmp->next;
 	}
 }

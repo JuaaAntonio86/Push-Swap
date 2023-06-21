@@ -6,7 +6,7 @@
 /*   By: juan-anm <juan-anm@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 11:12:16 by juan-anm          #+#    #+#             */
-/*   Updated: 2023/06/02 13:03:57 by juan-anm         ###   ########.fr       */
+/*   Updated: 2023/06/21 11:52:56 by juan-anm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <limits.h>
 # include <stdio.h>
 
-
 /*//////// GNL BUFFER DEFINITION \\\\\\\\\\\\*/
+
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE (int) 5
 

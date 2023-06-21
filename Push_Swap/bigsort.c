@@ -6,12 +6,12 @@
 /*   By: juan-anm <juan-anm@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 15:34:34 by juan-anm          #+#    #+#             */
-/*   Updated: 2023/06/14 17:40:43 by juan-anm         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:47:55 by juan-anm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 void ft_bigsort(t_node **a, t_node **b)
 {
 	t_node *tmpa;
@@ -129,3 +129,4 @@ int ft_findnexthigh(t_node **root, int val)
 		lowest = high;
 	return (lowest);
 }
+*/
