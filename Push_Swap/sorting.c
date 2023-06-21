@@ -6,7 +6,7 @@
 /*   By: juan-anm <juan-anm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 12:50:55 by juan-anm          #+#    #+#             */
-/*   Updated: 2023/06/21 15:53:34 by juan-anm         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:55:30 by juan-anm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	ft_sortstack(t_node **a, t_node **b)
 	i = 0;
 	tmp = *a;
 	ft_indexupdate(a);
-	if (ft_stacksize(*a) == 1 || !(ft_sortedstack(a)))
+	if (ft_stacksize(*a) < 1)
+		ft_error(1,a);
+	else if (ft_stacksize(*a) == 1 || !(ft_sortedstack(a)))
 		return ;
 	else if (ft_stacksize(*a) == 2)
 	{

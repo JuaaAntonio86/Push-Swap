@@ -6,7 +6,7 @@
 /*   By: juan-anm <juan-anm@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 11:51:41 by juan-anm          #+#    #+#             */
-/*   Updated: 2023/06/21 15:54:06 by juan-anm         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:17:49 by juan-anm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	sort_big(t_node **a, t_node **b, int blocks, int i)
 	while (tmpa != NULL)
 	{
 		tmp_size = ft_stacksize(*a);
-		max_ind = (ft_stacksize(*a) + ft_staksize(*b) / blocks) * ++i;
+		max_ind = ((ft_stacksize(*a) + ft_stacksize(*b)) / blocks) * ++i;
 		iter = -1;
 		while (++iter < tmp_size)
 		{

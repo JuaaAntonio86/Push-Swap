@@ -6,7 +6,7 @@
 /*   By: juan-anm <juan-anm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 11:51:54 by juan-anm          #+#    #+#             */
-/*   Updated: 2023/06/20 17:03:48 by juan-anm         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:48:16 by juan-anm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	**ft_splitarg(char const *s, char c)
 {
 	char	**split;
 
-	if (!s)
+	if (!s) 
 		return (NULL);
 	split = ft_calloc((ft_cntwrds(s, c) + 2), sizeof(char *));
 	if (!split)

@@ -6,7 +6,7 @@
 /*   By: juan-anm <juan-anm@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 12:18:23 by juan-anm          #+#    #+#             */
-/*   Updated: 2023/06/21 12:23:50 by juan-anm         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:09:35 by juan-anm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	i = 1;
-	if (argc < 2)
+	if (argc < 2 || argv[1] == 0)
 		ft_error(1, &a);
 	else if (argc == 2)
 		argv = ft_splitarg(argv[1], 32);
@@ -58,9 +58,11 @@ int	ft_checkarg(char **argv)
 		{
 			if (argv[j][i] == '-' || argv[j][i] == '+')
 				sign++;
-		i++;
+			if (sign > 0 && (argv[j][i] >= '0' && argv[j][i] <= '9'))
+				return (1);
+		i++;	
 		}
-		if (argv[j][i] != 0 || sign > 1)
+		if (argv[j][i] != 0 || sign > 1 || argv[j][i - 1] == '-' || argv[j][i - 1] == '+')
 			return (1);
 	j++;
 	}
