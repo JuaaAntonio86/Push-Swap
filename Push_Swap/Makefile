@@ -4,9 +4,8 @@ BONUS = checker
 CFLAGS = -Wall -Wextra -Werror 
 SRCS =	ft_splitarg.c ft_stackinit.c push_swap.c operations.c sorting.c bigsort.c biggi.c\
 		biggi2.c\
-##MAND =	push_swap.c \
-		
-		
+SRCBONUS = checker.c\
+	
 OBJS = $(SRCS:.c=.o) $(MAND:.c=.o)
 DEPS = $(SRCS:.c=.d) $(MAND:.c=.d)
 
@@ -36,16 +35,16 @@ $(NAME):: $(OBJS)
 $(NAME)::
 	@echo -n
 
-##bonus:
-##	@$(MAKE) -C libft
-##	@$(MAKE) $(BONUS)
+bonus:
+	@$(MAKE) -C libft
+	@$(MAKE) $(BONUS)
 
-##$(BONUS):: $(OBJBONUS)
-##	@$(CC) $(OBJBONUS) $(LIBS) -o $@
-##	@echo "$(GREEN)checker compiled$(NC)"
-
-##$(BONUS)::
-##	@echo -n
+$(BONUS):: $(OBJBONUS)
+	@$(CC) $(OBJBONUS) $(LIBS) -o $@
+	@echo "$(GREEN)checker compiled$(NC)"
+	
+$(BONUS)::
+	@echo -n
 
 clean:
 	@$(RM) $(OBJS) $(DEPS) $(OBJBONUS) $(DEPBONUS)
