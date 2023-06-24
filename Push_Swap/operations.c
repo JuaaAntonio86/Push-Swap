@@ -27,7 +27,8 @@ void	swap_a(t_node **root, char id)
 		one->next = tmp;
 		*root = two;
 		pos_stack(root);
-		ft_printf("s%c\n", id);
+		if (id)
+			ft_printf("s%c\n", id);
 	}
 }
 
@@ -46,7 +47,8 @@ void	rotate_a(t_node **root, char id)
 		tmp->next = one;
 		one -> next = NULL;
 		pos_stack(root);
-		ft_printf("r%c\n", id);
+		if (id)
+			ft_printf("r%c\n", id);
 	}
 }
 
@@ -65,7 +67,8 @@ void	rrotate_a(t_node **root, char id)
 		*root = tmp->next;
 		tmp->next = NULL;
 		pos_stack(root);
-		ft_printf("rr%c\n", id);
+		if (id)
+			ft_printf("rr%c\n", id);
 	}
 }
 
@@ -88,6 +91,7 @@ void	push_b(t_node **root_a, t_node **root_b, char id)
 		*root_a = tmp;
 		pos_stack(root_a);
 		pos_stack(root_b);
-		ft_printf("p%c\n", id);
+		if (id)
+			ft_printf("p%c\n", id);
 	}
 }

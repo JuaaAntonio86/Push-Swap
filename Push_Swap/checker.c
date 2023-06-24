@@ -22,56 +22,58 @@ int	main(int argc, char **argv)
 		ft_initlist(&a, ft_atol(argv[i]), 0);
 		i++;
 	}
-//	checker(&a, &b);
-	int hola = 189;
-	ft_printf("Hola %i", hola);
-	ft_printf("hola");
+	checker(&a, &b);
 	if (argv[0] == 0)
 		ft_freesp(argv);
 	ft_freelst(&a);
 	ft_freelst(&b);
 	return (0);
 }
-/*
+
 void checker(t_node **a, t_node **b)
 {
 	 char *line;
 	
+	ft_sortstack(a, b);
 	line = get_next_line(0);
-	while (str != NULL)
+	while (line != NULL)
 	{
-		checkstdin(line);
+		if (checkstdin(line, a, b) == 1)
+		{
+			ft_freelst(b);	
+			ft_error(1, a);
+		}
 		line = get_next_line(0);
 	}
-	if (ft_sortedstack(a)
+	if (ft_sortedstack(a))
 		ft_printf("OK");
 	else
-		ft_printf("KO"):
+		ft_printf("KO");
 }
 
-bool checkstdin(char *str)
+bool checkstdin(char *str, t_node **a, t_node **b)
 {
-	if (!strncmp(str, "pb\n", 4))
-		push_b(a, b, 'b');
-	else if (!strncmp(str, "pa\n", 4))
-		push_b(b, a, str[1]);
-	else if (!strncmp(str, "sa\n", 4))
-		swap_a(str[1]);
-	else if (!strncmp(str, "sa\n", 4))
-		swap_a(str[1]);
-	else if (!strncmp(str, "rb\n", 4))
-		push_b(b, a, str[1]);
-	else if (!strncmp(str, "rrb\n", 5))
-		push_b(b, a, str[1]);
-	else if 
+	if (!ft_strncmp(str, "pb\n", 4))
+		push_b(a, b, 0);
+	else if (!ft_strncmp(str, "pa\n", 4))
+		push_b(b, a, 0);
+	else if (!ft_strncmp(str, "sa\n", 4))
+		swap_a(a, 0);
+	else if (!ft_strncmp(str, "sb\n", 4))
+		swap_a(b, 0);
+	else if (!ft_strncmp(str, "rb\n", 4))
+		rotate_a(b, 0);
+	else if (!ft_strncmp(str, "ra\n", 4))
+		rotate_a(a, 0);
+	else if (!ft_strncmp(str, "rrb\n", 5))
+		rrotate_a(b, 0);
+	else if (!ft_strncmp(str, "rra\n", 5))
+		rrotate_a(a, 0);
+	else 
+		return (1);
+	return (0);
+}
 
-		return (0);
-	return (1);
-
-
-
-
-}*/
 int	ft_checkarg(char **argv)
 {
 	int	j;

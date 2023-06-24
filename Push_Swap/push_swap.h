@@ -76,4 +76,9 @@ void	ft_freelst(t_node **stack);
 void	*ft_freearg(char **m);
 void	ft_error(int type, t_node **a);
 
+////////////////BONUS/////////////////
+
+void checker(t_node **a, t_node **b);
+bool checkstdin(char *str, t_node **a, t_node **b);
+
 #endif

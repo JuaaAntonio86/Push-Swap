@@ -10,8 +10,8 @@ DEPS = $(SRCMAIN:.c=.d)
 
 SRCBONUS = 	checker.c $(SRCS)
 
-OBJBONUS = $(SRCS:.c=.o) $(SRCBONUS:.c=.o)
-DEPBONUS = $(SRCS:.c=.d) $(SRCBONUS:.c=.d)
+OBJBONUS = $(SRCBONUS:.c=.o)
+DEPBONUS = $(SRCBONUS:.c=.d)
 
 RM = rm -f
 
