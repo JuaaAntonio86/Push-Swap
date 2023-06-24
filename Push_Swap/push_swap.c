@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	i = 1;
 	if (argc < 2 || argv[1] == 0)
-		ft_error(1, &a);
+		ft_error(0, &a);
 	else if (argc == 2)
 		argv = ft_splitarg(argv[1], 32);
 	if (ft_checkarg(argv))

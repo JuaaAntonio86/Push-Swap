@@ -1,3 +1,4 @@
+#include "push_swap.h"
 
 int	main(int argc, char **argv)
 {
@@ -9,7 +10,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	i = 1;
 	if (argc < 2 || argv[1] == 0)
-		ft_error(1, &a);
+		ft_error(0, &a);
 	else if (argc == 2)
 		argv = ft_splitarg(argv[1], 32);
 	if (ft_checkarg(argv))
@@ -21,13 +22,17 @@ int	main(int argc, char **argv)
 		ft_initlist(&a, ft_atol(argv[i]), 0);
 		i++;
 	}
-	checker(&a, &b);
+//	checker(&a, &b);
+	int hola = 189;
+	ft_printf("Hola %i", hola);
+	ft_printf("hola");
 	if (argv[0] == 0)
 		ft_freesp(argv);
 	ft_freelst(&a);
 	ft_freelst(&b);
+	return (0);
 }
-
+/*
 void checker(t_node **a, t_node **b)
 {
 	 char *line;
@@ -60,14 +65,49 @@ bool checkstdin(char *str)
 		push_b(b, a, str[1]);
 	else if 
 
-
-
-
-
 		return (0);
 	return (1);
 
 
 
 
+}*/
+int	ft_checkarg(char **argv)
+{
+	int	j;
+
+	j = 1;
+	while (argv[j] != NULL)
+	{
+		if (checkstr(argv[j]) != 0)
+			return (1);
+	j++;
+	}
+	return (0);
+}
+
+int checkstr(char *str)
+{
+	int	i;
+	int	neg;
+
+	neg = 0;
+	i = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-' || str[i] == '+')
+			neg++;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		neg = 0;
+		i++;
+	}
+	if (str[i] == '\0' && neg == 0)
+		return (0);
+	else
+		return (1);
 }

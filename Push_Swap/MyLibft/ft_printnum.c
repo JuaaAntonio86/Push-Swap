@@ -16,12 +16,10 @@ static int	ft_intlen(int n);
 
 int	ft_putnbrs(long long int n, int cont)
 {
-	unsigned int	i;
 	unsigned int	div;
 	unsigned int	res;
 
 	res = 0;
-	i = 0;
 	div = ft_intlen(n);
 	if (n < 0)
 	{
@@ -36,8 +34,7 @@ int	ft_putnbrs(long long int n, int cont)
 		if (ft_putchars(res) == -1)
 			return (-1);
 		n = n % div;
-		div = div / 10;
-	i++;
+		div = div / 10;	
 	cont++;
 	}
 	return (cont);

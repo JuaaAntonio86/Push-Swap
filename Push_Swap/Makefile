@@ -2,14 +2,13 @@
 NAME = push_swap
 BONUS = checker
 CFLAGS = -Wall -Wextra -Werror 
-SRCS =	ft_splitarg.c ft_stackinit.c push_swap.c operations.c sorting.c bigsort.c biggi.c\
-		biggi2.c\
-SRCBONUS = checker.c\
+SRCMAIN = push_swap.c $(SRCS)
+SRCS =	ft_splitarg.c ft_stackinit.c operations.c sorting.c bigsort.c biggi.c biggi2.c\
 	
-OBJS = $(SRCS:.c=.o) $(MAND:.c=.o)
-DEPS = $(SRCS:.c=.d) $(MAND:.c=.d)
+OBJS = $(SRCMAIN:.c=.o) 
+DEPS = $(SRCMAIN:.c=.d)
 
-SRCBONUS = 	checker.c
+SRCBONUS = 	checker.c $(SRCS)
 
 OBJBONUS = $(SRCS:.c=.o) $(SRCBONUS:.c=.o)
 DEPBONUS = $(SRCS:.c=.d) $(SRCBONUS:.c=.d)
@@ -36,7 +35,7 @@ $(NAME)::
 	@echo -n
 
 bonus:
-	@$(MAKE) -C libft
+	@$(MAKE) -C MyLibft
 	@$(MAKE) $(BONUS)
 
 $(BONUS):: $(OBJBONUS)
