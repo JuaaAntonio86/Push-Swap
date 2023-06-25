@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../libs/push_swap.h"
 
 void	ft_initlist(t_node **root, int valu, int indx)
 {

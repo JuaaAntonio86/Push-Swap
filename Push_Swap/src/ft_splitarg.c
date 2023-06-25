@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../libs/push_swap.h"
 
 static char		*ft_strdupli(const char *s1, char cut);
 static int		ft_cntwrds(char const *s, char c);

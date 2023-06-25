@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../libs/push_swap.h"
 
 void	ft_sortstack(t_node **a, t_node **b)
 {

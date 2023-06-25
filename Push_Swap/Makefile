@@ -2,44 +2,47 @@
 NAME = push_swap
 BONUS = checker
 CFLAGS = -Wall -Wextra -Werror 
-SRCMAIN = push_swap.c $(SRCS)
-SRCS =	ft_splitarg.c ft_stackinit.c operations.c sorting.c bigsort.c biggi.c biggi2.c\
+SRCMAIN =src/push_swap.c $(SRCS)
+SRCS =	src/ft_splitarg.c src/ft_stackinit.c src/operations.c src/sorting.c src/bigsort.c src/biggi.c src/biggi2.c\
 	
 OBJS = $(SRCMAIN:.c=.o) 
 DEPS = $(SRCMAIN:.c=.d)
 
-SRCBONUS = 	checker.c $(SRCS)
+SRCBONUS = 	src/checker.c $(SRCS)
 
 OBJBONUS = $(SRCBONUS:.c=.o)
 DEPBONUS = $(SRCBONUS:.c=.d)
 
 RM = rm -f
 
-LIBS = MyLibft/libft.a
+PS = libs/push_swap.h
+LIBFT_DIR = libs/MyLibft
+LIBFT =  libs/MyLibft/libft.a
+LIBS = $(PS) $(LIBFT)
 GREEN = \033[1;92m
 RED = \033[1;91m
 NC = \033[0m
 
-%.o: %.c $(LIBS) Makefile
+%.o: %.c $(PS) Makefile
 	@$(CC) $(CFLAGS) -MMD -g -I./ -c $< -o $@
 
 all:
-	@$(MAKE) -C MyLibft
+	@$(MAKE) -C $(LIBFT_DIR)
 	@$(MAKE) $(NAME)
 
 $(NAME):: $(OBJS)
-	@$(CC) $(OBJS) $(LIBS) -o $@
+	@$(CC) $(OBJS) $(LIBFT) -o $@
 	@echo "$(GREEN)push_swap compiled$(NC)"
 
 $(NAME)::
 	@echo -n
 
 bonus:
-	@$(MAKE) -C MyLibft
+	@$(MAKE) -C $(LIBFT_DIR) 
 	@$(MAKE) $(BONUS)
 
 $(BONUS):: $(OBJBONUS)
-	@$(CC) $(OBJBONUS) $(LIBS) -o $@
+	@$(CC) $(OBJBONUS) $(LIBFT) -o $@
 	@echo "$(GREEN)checker compiled$(NC)"
 	
 $(BONUS)::
@@ -47,11 +50,11 @@ $(BONUS)::
 
 clean:
 	@$(RM) $(OBJS) $(DEPS) $(OBJBONUS) $(DEPBONUS)
-	@$(MAKE) clean -C MyLibft
+	@$(MAKE) clean -C $(LIBFT_DIR)
 	@echo "$(RED)\ndestruction successful\n$(NC)"
 
 fclean: clean
-	@$(RM) $(NAME) $(BONUS) $(LIBS)
+	@$(RM) $(NAME) $(BONUS) $(LIBFT)
 
 re: fclean all
 

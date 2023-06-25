@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../libs/push_swap.h"
 
 void	swap_a(t_node **root, char id)
 {

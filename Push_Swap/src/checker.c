@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../libs/push_swap.h"
 
 int	main(int argc, char **argv)
 {
@@ -33,22 +33,24 @@ int	main(int argc, char **argv)
 void checker(t_node **a, t_node **b)
 {
 	 char *line;
-	
-	ft_sortstack(a, b);
-	line = get_next_line(0);
-	while (line != NULL)
+	if (ft_sortedstack(a) == 1)
 	{
-		if (checkstdin(line, a, b) == 1)
-		{
-			ft_freelst(b);	
-			ft_error(1, a);
-		}
+	//	ft_sortstack(a, b);
 		line = get_next_line(0);
-	}
-	if (ft_sortedstack(a))
-		ft_printf("OK");
-	else
-		ft_printf("KO");
+		while (line != NULL)
+		{
+			if (checkstdin(line, a, b) == 1)
+			{
+				ft_freelst(b);	
+				ft_error(1, a);
+			}
+			line = get_next_line(0);
+		}
+	}	
+		if (!ft_sortedstack(a) && ft_stacksize(*b) == 0)
+			ft_printf("OK");
+		else
+			ft_printf("KO");
 }
 
 bool checkstdin(char *str, t_node **a, t_node **b)
