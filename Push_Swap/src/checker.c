@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: juan-anm <juan-anm@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/26 14:05:35 by juan-anm          #+#    #+#             */
+/*   Updated: 2023/06/26 14:06:41 by juan-anm         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libs/push_swap.h"
 
 int	main(int argc, char **argv)
@@ -9,7 +21,7 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	i = 1;
-	if (argc < 2 || argv[1] == 0)
+	if (argc < 1 || argv[1] == 0)
 		ft_error(0, &a);
 	else if (argc == 2)
 		argv = ft_splitarg(argv[1], 32);
@@ -27,33 +39,37 @@ int	main(int argc, char **argv)
 		ft_freesp(argv);
 	ft_freelst(&a);
 	ft_freelst(&b);
-	return (0);
 }
 
-void checker(t_node **a, t_node **b)
+void	checker(t_node **a, t_node **b)
 {
-	 char *line;
+	char	*line;
+
+	line = NULL;
 	if (ft_sortedstack(a) == 1)
 	{
-	//	ft_sortstack(a, b);
 		line = get_next_line(0);
 		while (line != NULL)
 		{
 			if (checkstdin(line, a, b) == 1)
 			{
-				ft_freelst(b);	
+				ft_freelst(b);
 				ft_error(1, a);
 			}
+			free(line);
 			line = get_next_line(0);
 		}
 	}	
-		if (!ft_sortedstack(a) && ft_stacksize(*b) == 0)
-			ft_printf("OK");
-		else
-			ft_printf("KO");
+	free(line);
+	if (!ft_sortedstack(a) && ft_stacksize(*b) == 0 && ft_stacksize(*a) >= 1)
+		ft_printf("OK");
+	else if (ft_sortedstack(a))
+		ft_printf("KO");
+	else
+		ft_error(1, a);
 }
 
-bool checkstdin(char *str, t_node **a, t_node **b)
+bool	checkstdin(char *str, t_node **a, t_node **b)
 {
 	if (!ft_strncmp(str, "pb\n", 4))
 		push_b(a, b, 0);
@@ -71,7 +87,7 @@ bool checkstdin(char *str, t_node **a, t_node **b)
 		rrotate_a(b, 0);
 	else if (!ft_strncmp(str, "rra\n", 5))
 		rrotate_a(a, 0);
-	else 
+	else
 		return (1);
 	return (0);
 }
@@ -90,7 +106,7 @@ int	ft_checkarg(char **argv)
 	return (0);
 }
 
-int checkstr(char *str)
+int	checkstr(char *str)
 {
 	int	i;
 	int	neg;

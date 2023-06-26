@@ -6,7 +6,7 @@
 /*   By: juan-anm <juan-anm@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 12:44:16 by juan-anm          #+#    #+#             */
-/*   Updated: 2023/06/21 19:10:20 by juan-anm         ###   ########.fr       */
+/*   Updated: 2023/06/26 16:48:16 by juan-anm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int		ft_cost(t_node **a, t_node **b);
 void	sort_big(t_node **a, t_node **b, int chunks, int i);
 void	push_stack_b(t_node **a, t_node **b, int max_ind, int chunk_size);
 void	push_stack_a(t_node **a, t_node **b);
-void	push_node(t_node **stack, int index, char stackchr);
+void	bubble_node(t_node **stack, int index, char stackchr);
 int		mtp(t_node **stack, int index);
 int		find_node(t_node **stack, int index);
 void	pos_stack(t_node **stack);
@@ -78,7 +78,7 @@ void	ft_error(int type, t_node **a);
 
 ////////////////BONUS/////////////////
 
-void checker(t_node **a, t_node **b);
-bool checkstdin(char *str, t_node **a, t_node **b);
+void	checker(t_node **a, t_node **b);
+bool	checkstdin(char *str, t_node **a, t_node **b);
 
 #endif

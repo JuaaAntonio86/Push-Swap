@@ -6,7 +6,7 @@
 /*   By: juan-anm <juan-anm@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 13:10:30 by juan-anm          #+#    #+#             */
-/*   Updated: 2023/06/02 13:05:21 by juan-anm         ###   ########.fr       */
+/*   Updated: 2023/06/26 14:03:34 by juan-anm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_putnbrs(long long int n, int cont)
 		if (ft_putchars(res) == -1)
 			return (-1);
 		n = n % div;
-		div = div / 10;	
+		div = div / 10;
 	cont++;
 	}
 	return (cont);
