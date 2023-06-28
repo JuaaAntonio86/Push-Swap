@@ -56,15 +56,15 @@ void	ft_indexupdate(t_node **a)
 {
 	t_node	*tmp;
 	int		i;
-	int		min;
-	int		last;
+	long	min;
+	long	last;
 
 	i = 0;
-	last = INT_MIN;
+	last = LONG_MIN;
 	tmp = *a;
 	while (i != ft_stacksize(*a))
 	{
-		min = INT_MAX;
+		min = LONG_MAX;
 		tmp = *a;
 		while (tmp != NULL)
 		{	
