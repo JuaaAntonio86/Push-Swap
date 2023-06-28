@@ -6,7 +6,7 @@
 /*   By: juan-anm <juan-anm@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 12:39:09 by juan-anm          #+#    #+#             */
-/*   Updated: 2023/06/21 13:05:33 by juan-anm         ###   ########.fr       */
+/*   Updated: 2023/06/26 16:58:37 by juan-anm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ bool	ft_sortedstack(t_node **a)
 	t_node	*tmp;
 
 	tmp = *a;
+	if (tmp == NULL)
+		return (0);
 	while (tmp -> next != NULL)
 	{
 		if ((tmp -> value) > (tmp -> next -> value))

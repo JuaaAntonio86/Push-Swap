@@ -6,7 +6,7 @@
 /*   By: juan-anm <juan-anm@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 11:51:41 by juan-anm          #+#    #+#             */
-/*   Updated: 2023/06/21 17:17:49 by juan-anm         ###   ########.fr       */
+/*   Updated: 2023/06/26 17:40:53 by juan-anm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,22 +63,22 @@ void	push_stack_a(t_node **a, t_node **b)
 			push_b(b, a, 'a');
 		else if (mtp(b, ft_stacksize(*b) - 2) < mtp(b, ft_stacksize(*b) - 1))
 		{
-			push_node(b, ft_stacksize(*b) - 2, 'b');
+			bubble_node(b, ft_stacksize(*b) - 2, 'b');
 			push_b(b, a, 'a');
-			push_node(b, ft_stacksize(*b), 'b');
+			bubble_node(b, ft_stacksize(*b), 'b');
 			push_b(b, a, 'a');
 			swap_a(a, 'a');
 		}
 		else
 		{
-			push_node(b, ft_stacksize(*b) - 1, 'b');
+			bubble_node(b, ft_stacksize(*b) - 1, 'b');
 			push_b(b, a, 'a');
 		}
 		tmpb = *b;
 	}
 }
 
-void	push_node(t_node **stack, int index, char stackchr)
+void	bubble_node(t_node **stack, int index, char stackchr)
 {
 	int	pos;
 
